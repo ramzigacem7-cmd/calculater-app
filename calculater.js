@@ -1,235 +1,100 @@
-// ================== variable ======================
+const my_btn=document.querySelectorAll('.btn');
+const my_screen=document.querySelector('.screen');
+const my_on=document.querySelector('.on');
+const my_off=document.querySelector('.off');
+const my_clean=document.querySelector('.clean');
+const my_clean_all=document.querySelector('.clean_all');
+const allbuttons=document.querySelectorAll('button');
+const alloperation=document.querySelectorAll('.op');
+const my_equal=document.querySelector('.equal');
+const my_sqrt=document.querySelector('.sqrt');
 
-const myscreen= document.querySelector(".screen");
-const mybtn= document.querySelectorAll(".btn");
-const myclearall= document.querySelector(".clearall");
-const myclear= document.querySelector(".clear");
-const mydivide= document.querySelector(".divide");
-const myequal= document.querySelector(".equal");
-const mymultip= document.querySelector(".multip");
-const mymines= document.querySelector(".mines");
-const myplus= document.querySelector(".plus");
-const myon= document.querySelector(".on");
-const myoff= document.querySelector(".off");
-const allButtons = document.querySelectorAll(".calculater button");
-const myremain= document.querySelector(".remain");
-const mysquart= document.querySelector(".squart");
-const mycos= document.querySelector(".cos");
-const mysin= document.querySelector(".sin");
-let first_number;
-let second_number;
-let isother = false;
-let operator = null;
-let  option = null;
-const operators = {
-  "+": "+",
-  "-": "-",
-  "*": "*",
-  "/": "/",
-  "%": "%",
-};
+// function to disabled or abled the buttons
 
-const options ={  "√" : mysquart, "cos":mycos, "sin":mysin}
-const ops ={"+":myplus, "-":mymines, "*":mymultip, "/":mydivide, "%":myremain};
-
-// ===== calculate function =======
-function calculate(){
-second_number= parseFloat(myscreen.textContent);
- clearAll();
-if(isNaN(second_number) || isNaN(first_number)) return;
-switch(operator){
-  case "+" :
-  myscreen.textContent = first_number+second_number;
-  break;
-  case "-" :
-   myscreen.textContent = first_number-second_number;
-   break;
-  case "*" :
-     myscreen.textContent = first_number*second_number;
-   break;
- case "/" :
-  if(second_number === 0){
-     myscreen.textContent = "error";
-  }else{
-    myscreen.textContent =  first_number/second_number;
-  }
-  break;
-  case "%" :
-    if(second_number === 0){
-     myscreen.textContent = "error";
-  }else{
-    myscreen.textContent =  first_number%second_number;
-  }
-  break;
-  default:
-    myscreen.textContent = second_number;
-}
-operator = null;
-}
-
-// ===== operation function =====
-
-function operation(){
-   first_number= parseFloat(myscreen.textContent); 
-   
-     myscreen.textContent ="";
-}
-
-// ===== clear function ===
-
-function clearOne(){
-  myscreen.textContent = myscreen.textContent.slice(0 , -1);
-}
-// ==== clearAll function ====
-
-function clearAll(){
-  myscreen.textContent = "";
-}
-
-// ==== other opiration ====
-
-function otheroperation(){
-  let num= parseFloat(myscreen.textContent);
-  clearAll();
-  switch(option){
- case "√":
- if(!isNaN(num) && num >= 0){
-myscreen.textContent = Math.sqrt(num);
- }break;
- case "cos":
-myscreen.textContent = Math.cos(num);
-break;
-case "sin":
-  myscreen.textContent = Math.sin(num);
-break;
-}
-}
-
-allButtons.forEach(button =>{
-    button.addEventListener("click", () =>{
-        if ((button.textContent === "." && myscreen.textContent.includes(".")) || button.classList.contains("clear") || button.classList.contains("squart") || button.classList.contains("cos") || button.classList.contains("sin")) {
-    return; 
-}
-myscreen.textContent += button.textContent;
-    })
-})
-// ====== option √ cos sin ======
-
-for(let op in options){
-options[op].addEventListener("click", ()=>{
-  option = op;
-  isother = true;
-})
-}
-
-// ============== clear ==================
-
- myclear.addEventListener("click", () =>{
-    clearOne();
-})
-
-// =============== clear all ==================
-
-myclearall.addEventListener("click", () =>{
-    clearAll()
-})
-
-// ============ arithmitic operations =====
-
-for(let key in ops){
-  ops[key].addEventListener("click", ()=>{
-    operator = key;
-    operation();
-  });
-}
-
-// ============ opirations ==============
-
-myequal.addEventListener("click", () =>{
-  if(isother){
-otheroperation()
-isother = false;
-  }else{
-     calculate();
-  }
-
-});
-
-// ======= دالة تشغيل =========
-
-myon.addEventListener("click", ()=>{
-    myscreen.textContent = "";
-  allButtons.forEach(btn => {
-    btn.disabled = false;
-  });
-})
-
-// ======= دالة إطفاء =========
-
-myoff.addEventListener("click", () => {
-clearAll();
-  allButtons.forEach(btn => {
-    if (!btn.classList.contains("off") && !btn.classList.contains("on")) {
-      btn.disabled = true;
+function disabled_button(x){
+ allbuttons.forEach(btn =>{
+    if(btn.className != "on"){
+        btn.disabled=x;
     }
-  });
-});
-
-// ==== افتراضياً نخلي الكل disabled إلا on ====
-
-allButtons.forEach(btn => {
-  if (!btn.classList.contains("on")) {
-    btn.disabled = true;
-  }
-});
-
-// === controle by the keybord ===
-
-document.addEventListener("keydown", (event) => {
-
-if(event.key === "." && myscreen.textContent.includes(".") || event.key === "=" ){
-return;
+})
 }
 
-  if(event.key === "o" || event.key === "O"){
-allButtons.forEach(btn => {
-  btn.disabled = false;
-});
-return; 
-}
+my_screen.textContent=" ";
 
-if(event.key === "x" || event.key === "X"){
-clearAll();
-allButtons.forEach(btn =>{
-  if(!btn.classList.contains("on") && !btn.classList.contains("off")){
-btn.disabled = true;
-  }
-});
-return;
+disabled_button(true);
 
-}
+// Power ON
 
- if(event.key === "Backspace"){
-clearOne();
-}
+my_on.addEventListener("click", () =>{
+   my_screen.textContent=" ";
+  my_screen.textContent= "0";
+  disabled_button(false);
+})
+ 
 
-if(event.key === "l" || event.key === "L" ){
-clearAll();
-}
+// Power OFF
 
-allButtons.forEach(btn =>{
-  if(event.key === btn.textContent && !btn.disabled && !btn.classList.contains("clear") 
-     && !btn.classList.contains("clearall")){
-   myscreen.textContent += btn.textContent;
-  }
+my_off.addEventListener("click", () =>{
+    my_screen.textContent=" ";
+disabled_button(true);
 })
 
- if (event.key in operators) {
-    operator = operators[event.key];
-    operation();
-  }
+// show the symbol or number that we click on
 
-  if (event.key === "Enter") {
-    calculate();
-  }
+my_btn.forEach(btn => {
+    btn.addEventListener("click", () =>{
+        if(my_screen.textContent == "0"){
+            my_screen.textContent=" ";
+        }
+      my_screen.textContent=my_screen.textContent+btn.textContent;
+})
 });
+
+// squart click
+
+my_sqrt.addEventListener("click", ()=>{
+     if(my_screen.textContent == "0"){
+            my_screen.textContent=" ";
+        }
+    my_screen.textContent += "sqrt(";
+})
+
+// clear all screen
+
+my_clean_all.addEventListener("click",()=>{
+     my_screen.textContent="0";
+})
+
+//  clear button
+
+let screen="";
+my_clean.addEventListener("click",()=>{ 
+    my_screen.textContent=my_screen.textContent.slice(0,-1);
+     screen=my_screen.textContent;
+    if(screen[1] == null){
+        my_screen.textContent="0";
+    }
+})
+
+// click equal to display the result
+
+my_equal.addEventListener("click",()=>{
+    try{
+      const parser= new exprEval.Parser();
+      my_screen.textContent=parser.evaluate(my_screen.textContent);
+    }catch(Error){
+    }
+   
+})
+
+
+
+
+
+
+
+
+
+
+
+
