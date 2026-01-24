@@ -1,58 +1,47 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(249, 249, 249);
+}
 .calculater{
-    background:linear-gradient(180deg, rgb(2, 2, 15),rgb(252, 8, 8),rgb(2, 12, 3));
-    width: 60vh;
-   height: 80vh;  
-   position: relative;
-       border: 10px solid black;
-     border-radius: 20px;
-     box-shadow: 3px 4px 7px ;
+  display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100%;
 }
 .screen{
-  color: rgb(112, 229, 247);
+  color: black;
   display: flex;
    justify-content: flex-end; 
    align-items: center;
-   padding: 10px;
-   overflow-x: hidden;
-  font-weight: bolder;
-  font-size: 25px;
-    background-color: rgb(127, 124, 124);
-     position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 47vh;
-    height: 5vh;
-       border: 4px solid ;
-     border-radius: 20px;
-}
-
-body{
-display:flex;
-    justify-content: center;
-    align-items: center;
-      height: 100vh;
-    margin: 0;
+   overflow: hidden;
+  font-weight:bold;
+  font-size: 4rem;
+    width: 100%;
+    height: 25vh; 
+    padding: 5px;
 }
 .buttons{
   display: grid;
-
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-     position: absolute;
-    top: 30%;
-    left: 8%;
-    width: 50vh;
-    height: 50vh;
+    width: 100%;
+    height: 68vh;
+     padding: 4px;
 } 
-button{
-  background-color: rgb(115, 119, 122);
-  color: rgb(17, 247, 247);
-  border-radius: 20px;
-  border: 4px solid;
+.buttons button{
+  background: black;
+  color: white;
+  border-radius: 50%;
   font-weight: bold;
-  font-size: larger;
+  font-size:1.5rem;
 }
-   
-button:hover{
-    transform: scale(1.05);
+.buttons button:active{
+  background-color: gray;
 }
+
+
