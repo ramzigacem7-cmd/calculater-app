@@ -19,8 +19,13 @@ function disabled_button(x){
 })
 }
 
+<<<<<<< HEAD
 
 my_screen.textContent=" ";
+=======
+my_screen.textContent=" ";
+
+>>>>>>> 57e98c3093cdf42ab55e987cbd04ab278ac63940
 disabled_button(true);
 
 // Power ON
@@ -29,6 +34,7 @@ my_on.addEventListener("click", () =>{
    my_screen.textContent=" ";
   my_screen.textContent= "0";
   disabled_button(false);
+<<<<<<< HEAD
 })
 
 // Power OFF
@@ -40,6 +46,20 @@ disabled_button(true);
 
 // show the symbol or number that we click on
 
+=======
+})
+ 
+
+// Power OFF
+
+my_off.addEventListener("click", () =>{
+    my_screen.textContent=" ";
+disabled_button(true);
+})
+
+// show the symbol or number that we click on
+
+>>>>>>> 57e98c3093cdf42ab55e987cbd04ab278ac63940
 my_btn.forEach(btn => {
     btn.addEventListener("click", () =>{
         if(my_screen.textContent == "0"){
