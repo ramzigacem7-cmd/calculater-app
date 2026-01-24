@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 *{
   margin: 0;
   padding: 0;
@@ -13,25 +12,6 @@
    align-items: center;
    height: 100vh;
    width: 100%;
-=======
-body{
-  display: flex;
-  justify-content: center;
-  margin-top: 15%;
-}
-.calculater{
-  background-color: black;
-    width: 70vw;
-    padding: 4%;
-   height: 80vh;  
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-       border: 3px solid rgb(108, 106, 106);
-     border-radius: 8px;
-     box-shadow: 3px 3px 5px ;
->>>>>>> 57e98c3093cdf42ab55e987cbd04ab278ac63940
 }
 .screen{
   color: black;
@@ -39,30 +19,16 @@ body{
    justify-content: flex-end; 
    align-items: center;
    overflow: hidden;
-<<<<<<< HEAD
   font-weight:bold;
   font-size: 4rem;
     width: 100%;
     height: 25vh; 
     padding: 5px;
 }
-=======
- padding: 2%;
-  font-weight:bold;
-  font-size: 40px;
-    background-color: rgb(193, 190, 190);
-    width: 100%;
-    height: 12vh;
-       border: 2px solid ;
-     border-radius: 5px;
-}
-
->>>>>>> 57e98c3093cdf42ab55e987cbd04ab278ac63940
 .buttons{
   display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-<<<<<<< HEAD
     width: 100%;
     height: 68vh;
      padding: 4px;
@@ -76,27 +42,6 @@ body{
 }
 .buttons button:active{
   background-color: gray;
-=======
-    width: 100vw;
-    height: 50vh;
-} 
-.buttons button{
-  background: gray;
-  color: black;
-  border-radius: 3px;
-  border: 4px solid;
-  font-weight: bold;
-  font-size:large;
-  transition: all 0.1s ease
-}
-
-.buttons button:hover{
-  filter: brightness(1.05);
-}
-
-.buttons button:active{
-  transform: translateY(6px);
->>>>>>> 57e98c3093cdf42ab55e987cbd04ab278ac63940
 }
 
 
